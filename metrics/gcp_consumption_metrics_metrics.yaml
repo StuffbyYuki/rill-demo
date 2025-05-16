@@ -28,12 +28,12 @@ measures:
     display_name: Total Cost
     expression: SUM(cost)
     description: The total cost incurred for all services.
-    format_preset: humanize
+    format_preset: currency_usd
   - name: average_cost_measure
     display_name: Average Cost
     expression: AVG(cost)
     description: The average cost incurred per record.
-    format_preset: humanize
+    format_preset: currency_usd
   - name: total_usage_amount_measure
     display_name: Total Usage Amount
     expression: SUM(usage_amount)
@@ -48,12 +48,12 @@ measures:
     display_name: Maximum Cost
     expression: MAX(cost)
     description: The maximum cost recorded for a single entry.
-    format_preset: humanize
+    format_preset: currency_usd
   - name: min_cost_measure
     display_name: Minimum Cost
     expression: MIN(cost)
     description: The minimum cost recorded for a single entry.
-    format_preset: humanize
+    format_preset: currency_usd
   - name: max_usage_amount_measure
     display_name: Maximum Usage Amount
     expression: MAX(usage_amount)

@@ -1,0 +1,36 @@
+# Explore YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/canvas-dashboards
+
+type: canvas
+display_name: "Canvas Dashboard"
+defaults:
+  time_range: PT24H
+  comparison_mode: time
+rows:
+  - items:
+      - kpi_grid:
+          metrics_view: gcp_consumption_metrics_metrics
+          measures:
+            - total_cost_measure
+            - average_cost_measure
+            - total_usage_amount_measure
+            - average_usage_amount_measure
+          comparison:
+            - delta
+            - percent_change
+        width: 12
+    height: 40px
+  - items:
+      - line_chart:
+          metrics_view: gcp_consumption_metrics_metrics
+          x:
+            type: temporal
+            field: usage_start_time
+            sort: -y
+            limit: 20
+          y:
+            type: quantitative
+            field: distinct_services_measure
+            zeroBasedOrigin: true
+          color: hsl(240,100%,67%)
+        width: 12
