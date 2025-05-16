@@ -1,0 +1,76 @@
+# Metrics view YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI.
+
+version: 1
+type: metrics_view 
+
+display_name: GCP Consumption Metrics
+model: gcp_consumption_metrics
+timeseries: usage_start_time
+
+dimensions:
+  - name: service_description
+    display_name: Service Description
+    column: service_description
+  - name: sku_description
+    display_name: Sku Description
+    column: sku_description
+  - name: usage_unit
+    display_name: Usage Unit
+    column: usage_unit
+  - name: pricing_unit
+    display_name: Pricing Unit
+    column: pricing_unit
+
+measures:
+  - name: total_cost_measure
+    display_name: Total Cost
+    expression: SUM(cost)
+    description: The total cost incurred for all services.
+    format_preset: humanize
+  - name: average_cost_measure
+    display_name: Average Cost
+    expression: AVG(cost)
+    description: The average cost incurred per record.
+    format_preset: humanize
+  - name: total_usage_amount_measure
+    display_name: Total Usage Amount
+    expression: SUM(usage_amount)
+    description: The total usage amount for all services.
+    format_preset: humanize
+  - name: average_usage_amount_measure
+    display_name: Average Usage Amount
+    expression: AVG(usage_amount)
+    description: The average usage amount per record.
+    format_preset: humanize
+  - name: max_cost_measure
+    display_name: Maximum Cost
+    expression: MAX(cost)
+    description: The maximum cost recorded for a single entry.
+    format_preset: humanize
+  - name: min_cost_measure
+    display_name: Minimum Cost
+    expression: MIN(cost)
+    description: The minimum cost recorded for a single entry.
+    format_preset: humanize
+  - name: max_usage_amount_measure
+    display_name: Maximum Usage Amount
+    expression: MAX(usage_amount)
+    description: The maximum usage amount recorded for a single entry.
+    format_preset: humanize
+  - name: min_usage_amount_measure
+    display_name: Minimum Usage Amount
+    expression: MIN(usage_amount)
+    description: The minimum usage amount recorded for a single entry.
+    format_preset: humanize
+  - name: count_records_measure
+    display_name: Count of Records
+    expression: COUNT(*)
+    description: The total number of records in the table.
+    format_preset: humanize
+  - name: distinct_services_measure
+    display_name: Distinct Services
+    expression: COUNT(DISTINCT service_description)
+    description: The number of distinct services described in the records.
+    format_preset: humanize
